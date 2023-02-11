@@ -10,6 +10,7 @@ public class Invoice {
 
     public void addProduct(Product product) {
         // TODO: implement
+
     }
 
     public void addProduct(Product product, Integer quantity) {
@@ -17,7 +18,13 @@ public class Invoice {
     }
 
     public BigDecimal getSubtotal() {
-        return null;
+    BigDecimal temp = new BigDecimal(0);
+    if (products == null)
+        return temp;
+    for (Product x: products){
+        temp = temp.add(x.getPrice());
+    }
+    return temp;
     }
 
     public BigDecimal getTax() {
